@@ -4,6 +4,10 @@ require('dotenv').config();
 
 const app = express();
 
+app.get('/', (req, res) => {
+  res.send('Server is live');
+});
+
 app.get('/mockups', async (req, res) => {
   try {
     const response = await axios.get('https://app.dynamicmockups.com/api/v1/mockups', {
@@ -15,8 +19,10 @@ app.get('/mockups', async (req, res) => {
 
     res.json(response.data);
   } catch (error) {
+    console.error(error.response?.data || error.message);
     res.status(500).json({ error: 'Failed to fetch mockups' });
   }
 });
 
-app.listen(10000, () => console.log('Running'));
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => console.log('Running on port ' + PORT));
