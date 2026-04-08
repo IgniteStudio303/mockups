@@ -1,16 +1,14 @@
 const express = require('express');
 const axios = require('axios');
-require('dotenv').config();
 
 const app = express();
 
-// Base route (health check)
+// Base route
 app.get('/', (req, res) => {
   res.send('Server is live');
 });
 
-// Mockups route
-
+// Render route
 app.get('/render', async (req, res) => {
   try {
     const response = await axios.post(
@@ -44,4 +42,9 @@ app.get('/render', async (req, res) => {
       error: error.response?.data || error.message
     });
   }
+});
+
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, () => {
+  console.log(`Running on port ${PORT}`);
 });
