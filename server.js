@@ -20,7 +20,8 @@ app.get('/mockups', async (req, res) => {
       }
     });
 
-    res.json(response.data);
+    res.setHeader('Content-Type', 'application/json');
+    res.status(200).send(response.data);
 
   } catch (error) {
     console.error('API ERROR:', error.response?.data || error.message);
@@ -30,6 +31,3 @@ app.get('/mockups', async (req, res) => {
     });
   }
 });
-
-const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => console.log(`Running on port ${PORT}`));
