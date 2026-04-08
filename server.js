@@ -13,7 +13,6 @@ app.get('/', (req, res) => {
 
       app.get('/check-key', (req, res) => {
   res.send(process.env.DYNAMIC_API_KEY ? 'KEY EXISTS' : 'NO KEY');
-});
     });
 
     res.json(response.data);
