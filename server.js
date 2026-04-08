@@ -18,9 +18,11 @@ app.get('/render', async (req, res) => {
         smart_objects: [
           {
             uuid: "bdb4f385-9648-4a65-8214-48c5eb07c733",
+            
             asset: {
-              type: "image",
-              url: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Fronalpstock_big.jpg"
+  type: "image",
+  url: "https://cdn.shopify.com/s/files/1/0791/2226/8388/files/6a8b68dd-62c5-481d-9fc1-82d82f55e55e_34d5dcec-dd40-49df-8f6d-162a93a13c5f.webp?v=1775602710"
+}
             }
           }
         ]
