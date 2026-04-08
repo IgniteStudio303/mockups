@@ -17,6 +17,9 @@ app.get('/mockups', async (req, res) => {
         'x-api-key': process.env.DYNAMIC_API_KEY,
         'Accept': 'application/json'
       }
+      app.get('/check-key', (req, res) => {
+  res.send(process.env.DYNAMIC_API_KEY ? 'KEY EXISTS' : 'NO KEY');
+});
     });
 
     res.json(response.data);
