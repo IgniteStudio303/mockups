@@ -11,8 +11,13 @@ app.get('/', (req, res) => {
 
 // Mockups route
 
-      app.get('/check-key', (req, res) => {
-  res.send(process.env.DYNAMIC_API_KEY ? 'KEY EXISTS' : 'NO KEY');
+app.get('/mockups', async (req, res) => {
+  try {
+    const response = await axios.get('https://app.dynamicmockups.com/api/v1/mockups', {
+      headers: {
+        'x-api-key': process.env.DYNAMIC_API_KEY,
+        'Accept': 'application/json'
+      }
     });
 
     res.json(response.data);
