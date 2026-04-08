@@ -5,7 +5,10 @@ require('dotenv').config();
 const app = express();
 
 app.get('/', (req, res) => {
-  res.send('Server is live');
+  res.send('Server is live'); 
+
+  app.get('/test', (req, res) => {
+  res.send('TEST ROUTE WORKING');
 });
 
 app.get('/mockups', async (req, res) => {
